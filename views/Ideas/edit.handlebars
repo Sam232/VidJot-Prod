@@ -1,0 +1,20 @@
+{{#if videoIdea}}
+  <div class="card card-body">
+    <h1>Edit Video Idea</h1>
+    <form action="/ideas/{{videoIdea._id}}?_method=PUT" method="POST">
+      <input type="hidden" name="_method" value="PUT">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control" type="text" name="title" value="{{videoIdea.title}}">
+      </div>
+      <div class="form-group">
+        <label for="details">Details</label>
+        <textarea class="form-control" name="details">{{videoIdea.details}}</textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Update</button>
+    </form>
+  </div>
+{{/if}}
+{{#else}}
+  <h4>{{errorMessage}}</h4>
+{{/else}}
